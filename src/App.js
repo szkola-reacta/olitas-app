@@ -14,7 +14,7 @@ import {
 } from "react-router-dom";
 
 import { Menu } from './components/Menu';
-import { HomePage, MenuPage, OrdersPage } from './pages';
+import { HomePage, MenuPage, OrdersPage, MenuDetailsPage } from './pages';
 
 function App() {
   return (
@@ -27,6 +27,7 @@ function App() {
             <ColorModeSwitcher justifySelf="flex-end" />
           </Flex>
           <Switch>
+            <Route path="/menu/:menuId" component={MenuDetailsPage}></Route>
             <Route path="/menu" component={MenuPage}></Route>
             <Route path="/orders" component={OrdersPage}></Route>
             <Route path="/" component={HomePage}></Route>
