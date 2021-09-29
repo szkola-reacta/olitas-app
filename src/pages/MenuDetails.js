@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Box, Text, Button } from '@chakra-ui/react';
+import { Box, Text, Button, Image } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 
 import { fetchMenuDetails } from '../services/menu';
@@ -24,7 +24,7 @@ function MenuDetails() {
   const handleClick = () => {
     makeOrder(menuId, {
       name: menuData.name,
-    })
+    });
   }
 
   return (
@@ -35,6 +35,7 @@ function MenuDetails() {
         <Text>{menuData.notes}</Text>
         <Text>${menuData.price}</Text>
         <Text>{menuData.status}</Text>
+        {menuData.photos && <Image src={menuData.photos[0].url} /> }
         <Button onClick={handleClick}>Make order</Button>
       </Box>)}
     </Box>

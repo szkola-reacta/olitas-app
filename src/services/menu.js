@@ -35,13 +35,14 @@ export const fetchMenuDetails = async (menuId) => {
     const { data: dbData } = await axiosInstance
     .get(`${apiConfig.menuDetail}/${menuId}`);
 
-  const { name, notes, price, status } = dbData.fields;
+  const { name, notes, price, status, photos } = dbData.fields;
 
   return {
     name,
     notes,
     price,
     status,
+    photos,
   };
   } catch (e) {
     console.error(e);
